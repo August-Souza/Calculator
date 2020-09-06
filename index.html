@@ -2,49 +2,79 @@
 <html lang="pt-br">
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@600;700;800&display=swap" rel="stylesheet">
-    <title>Título da página</title>
+    <title>Calculator</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
     <div class="container">
       <div class="result">
-        <p class="formula">2x50x3</p>
-        <p>30000000</p>
+        <p id="formula" class="formula"></p>
+        <p id="count" class="count"></p>
       </div>
       <div class="divisor"></div>
       <div class="keyboard">
         <div class="rows-board">
-          <button class="operator-top">C</button>
-          <button class="operator-top">+/-</button>
-          <button class="operator-top">%</button>
-          <button class="operator-side">/</button>
+          <button class="operator-top" onclick="">C</button>
+          <button value="+/-" onclick="operators(this.value)" class="operator-top">+/-</button>
+          <button value="%" onclick="operators(this.value)" class="operator-top">%</button>
+          <button value="/" onclick="operators(this.value)" class="operator-side">/</button>
         </div>
         <div class="rows-board">
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button class="operator-side">X</button>
+          <button value="7" onclick="numbers(this.value)">7</button>
+          <button value="8" onclick="numbers(this.value)">8</button>
+          <button value="9" onclick="numbers(this.value)">9</button>
+          <button value="x" onclick="operators(this.value)" class="operator-side">X</button>
         </div>
         <div class="rows-board">
-        <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button class="operator-side">-</button>
+          <button value="4" onclick="numbers(this.value)">4</button>
+          <button value="5" onclick="numbers(this.value)">5</button>
+          <button value="6" onclick="numbers(this.value)">6</button>
+          <button value="-" onclick="operators(this.value)" class="operator-side">-</button>
         </div>
         <div class="rows-board">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button class="operator-side">+</button>
+          <button value="1" onclick="numbers(this.value)">1</button>
+          <button value="2" onclick="numbers(this.value)">2</button>
+          <button value="3" onclick="numbers(this.value)">3</button>
+          <button value="+" onclick="operators(this.value)" class="operator-side">+</button>
         </div>
         <div class="rows-board">
-          <button>00</button>
-          <button>0</button>
-          <button class="operator-top">,</button>
-          <button class="submit">=</button>
+          <button value="00" onclick="numbers(this.value)">00</button>
+          <button value="0" onclick="numbers(this.value)">0</button>
+          <button value="," onclick="numbers(this.value)" class="operator-top">,</button>
+          <button onclick="resul()" class="submit">=</button>
         </div>
       </div>
     </div>
+    <script>
+      function resul() {
+        
+      }
+ 
+      function operators(e) {
+        const count = document.getElementById("count")
+        const formula = document.getElementById('formula')
+        if(count.innerText === '') {
+          return
+        }
+
+        if (formula.innerText === ''){
+          formula.innerHTML = `${count.innerText} ${e}`
+        } else {
+          formula.innerHTML = ` ${formula.innerText} ${count.innerText} ${e}`          
+        }
+        document.getElementById('count').innerHTML = ""
+        
+        return
+      }
+
+      function numbers(e) {
+        const ex = document.getElementById("count").textContent
+        if (ex.length >= 8) {
+          return
+        }
+        return document.getElementById("count").innerHTML = ex+e
+      }
+    </script>
   </body>
 </html>
