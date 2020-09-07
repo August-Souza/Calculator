@@ -9,72 +9,43 @@
   <body>
     <div class="container">
       <div class="result">
-        <p id="formula" class="formula"></p>
-        <p id="count" class="count"></p>
+        <p id="previewer" class="previewer">0</p>
+        <p id="viewer" class="viewer">0</p>
       </div>
       <div class="divisor"></div>
       <div class="keyboard">
         <div class="rows-board">
-          <button class="operator-top" onclick="">C</button>
-          <button value="+/-" onclick="operators(this.value)" class="operator-top">+/-</button>
-          <button value="%" onclick="operators(this.value)" class="operator-top">%</button>
-          <button value="/" onclick="operators(this.value)" class="operator-side">/</button>
+          <button id="clear" class="clear">C</button>
+          <button data-ops="plus_minus" class="ops top">+/-</button>
+          <button data-ops="percent" class="ops top">%</button>
+          <button data-ops="divided_by" class="ops">/</button>
         </div>
         <div class="rows-board">
-          <button value="7" onclick="numbers(this.value)">7</button>
-          <button value="8" onclick="numbers(this.value)">8</button>
-          <button value="9" onclick="numbers(this.value)">9</button>
-          <button value="x" onclick="operators(this.value)" class="operator-side">X</button>
+          <button class="num" data-num="7">7</button>
+          <button class="num" data-num="8">8</button>
+          <button class="num" data-num="9">9</button>
+          <button data-ops="times" class="ops">X</button>
         </div>
         <div class="rows-board">
-          <button value="4" onclick="numbers(this.value)">4</button>
-          <button value="5" onclick="numbers(this.value)">5</button>
-          <button value="6" onclick="numbers(this.value)">6</button>
-          <button value="-" onclick="operators(this.value)" class="operator-side">-</button>
+          <button class="num" data-num="4">4</button>
+          <button class="num" data-num="5">5</button>
+          <button class="num" data-num="6">6</button>
+          <button data-ops="minus" class="ops">-</button>
         </div>
         <div class="rows-board">
-          <button value="1" onclick="numbers(this.value)">1</button>
-          <button value="2" onclick="numbers(this.value)">2</button>
-          <button value="3" onclick="numbers(this.value)">3</button>
-          <button value="+" onclick="operators(this.value)" class="operator-side">+</button>
+          <button class="num" data-num="1">1</button>
+          <button class="num" data-num="2">2</button>
+          <button class="num" data-num="3">3</button>
+          <button data-ops="plus" class="ops">+</button>
         </div>
         <div class="rows-board">
-          <button value="00" onclick="numbers(this.value)">00</button>
-          <button value="0" onclick="numbers(this.value)">0</button>
-          <button value="," onclick="numbers(this.value)" class="operator-top">,</button>
-          <button onclick="resul()" class="submit">=</button>
+          <button class="num" data-num="00">00</button>
+          <button class="num" data-num="0">0</button>
+          <button class="num b" data-num=".">.</button>
+          <button id="equals" class="equals" data-result="">=</button>
         </div>
       </div>
     </div>
-    <script>
-      function resul() {
-        
-      }
- 
-      function operators(e) {
-        const count = document.getElementById("count")
-        const formula = document.getElementById('formula')
-        if(count.innerText === '') {
-          return
-        }
-
-        if (formula.innerText === ''){
-          formula.innerHTML = `${count.innerText} ${e}`
-        } else {
-          formula.innerHTML = ` ${formula.innerText} ${count.innerText} ${e}`          
-        }
-        document.getElementById('count').innerHTML = ""
-        
-        return
-      }
-
-      function numbers(e) {
-        const ex = document.getElementById("count").textContent
-        if (ex.length >= 8) {
-          return
-        }
-        return document.getElementById("count").innerHTML = ex+e
-      }
-    </script>
+    <script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>

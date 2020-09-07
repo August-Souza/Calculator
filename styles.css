@@ -20,6 +20,7 @@ div.container {
 }
 
 div.result {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -31,21 +32,24 @@ p {
   color: #fff;
   font-weight: lighter;
 }
-p.count {
+p.viewer {
+  display: flex;
+  justify-content: flex-end;
+  width: 250px;
   font-size: 50px;
   height: 50px;
   margin: 0px 30px 20px 0px;
 }
 
-p.formula {
+p.previewer {
   margin: 0px 30px 0px 0px;
   font-size: medium;
 }
 
 div.divisor {
-  width: 90%;
+  width: 80%;
   height: 0.5px;
-  margin: 0px 5%;
+  margin: 0px 10%;
   background-color: #aaaaaa;
 }
 
@@ -59,6 +63,13 @@ div.rows-board {
   margin: 3.5% 0%;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+div.rows-board_f {
+  margin: 3.5% 0%;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -77,22 +88,30 @@ button {
   overflow: hidden;
 }
 
-button.submit {
+button.clear {
+  color: #fff;
+}
+
+button.equals {
   color: #ffff;
   background-color: #FF6F6F;
   box-shadow: 3px 3px 10px rgb(255, 111, 111, 0.4);
 }
 
-button.operator-top {
+button.ops.top {
   color: #fff;
 }
 
-button.operator-side {
+button.ops {
   color: #FF6F6F;
 }
 
 button.operator-side:active {
   opacity: 0.3;
+}
+
+button.num.b {
+  color: #fff;
 }
 
 button:active {
